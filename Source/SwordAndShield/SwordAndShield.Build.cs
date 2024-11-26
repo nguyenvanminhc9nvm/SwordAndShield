@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+using System.IO;
 using UnrealBuildTool;
 
 public class SwordAndShield : ModuleRules
@@ -8,9 +9,13 @@ public class SwordAndShield : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore",  "OnlineSubsystem", "OnlineSubsystemEOS", "OnlineSubsystemUtils"  });
 
-		PrivateDependencyModuleNames.AddRange(new string[] {  });
+		if (Target.Platform == UnrealTargetPlatform.Android)
+		{
+			var manifestFile = Path.Combine(ModuleDirectory, "AndroidSanitizePermission_UPL.xml");
+			AdditionalPropertiesForReceipt.Add("AndroidPlugin", manifestFile);
+		}
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
