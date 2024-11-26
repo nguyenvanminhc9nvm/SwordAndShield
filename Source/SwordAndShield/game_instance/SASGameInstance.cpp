@@ -59,11 +59,16 @@ void USASGameInstance::Logout()
 
 void USASGameInstance::OnLoginCompleted(signed int NumberOfPlayer, bool IsSuccessFul, const FUniqueNetId& UniqueNetId, const FString& ErrorMessage) const
 {
+	UE_LOG(LogTemp, Warning, TEXT("OnLoginCompleted process: isSuccess: %s"), IsSuccessFul)
+	UE_LOG(LogTemp, Warning, TEXT("OnLoginCompleted NumberOfPlayer: %s"), NumberOfPlayer)
+	UE_LOG(LogTemp, Warning, TEXT("OnLoginCompleted UniqueNetId: %s"), *UniqueNetId.ToString())
+	UE_LOG(LogTemp, Warning, TEXT("OnLoginCompleted ErrorMessage: %s"), *ErrorMessage)
 	OnLoginCompletedEvent.Broadcast(IsSuccessFul, ErrorMessage);
 }
 
 void USASGameInstance::OnLogoutCompleted(signed int I, bool IsSuccessFul) const
 {
+	UE_LOG(LogTemp, Warning, TEXT("Onlogout process: isSuccess: %s"), IsSuccessFul)
 	OnLogoutCompletedEvent.Broadcast(IsSuccessFul);
 }
 

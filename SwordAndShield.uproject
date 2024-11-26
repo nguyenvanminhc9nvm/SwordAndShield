@@ -66,6 +66,10 @@
 		{
 			"Name": "OnlineServicesEOSGS",
 			"Enabled": true
+		},
+		{
+			"Name": "VaRestX",
+			"Enabled": true
 		}
 	],
 	"TargetPlatforms": [
