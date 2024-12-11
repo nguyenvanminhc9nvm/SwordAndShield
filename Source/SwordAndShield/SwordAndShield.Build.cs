@@ -9,7 +9,7 @@ public class SwordAndShield : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore",  "OnlineSubsystem", "OnlineSubsystemEOS", "OnlineSubsystemUtils"  });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore"  });
 
 		if (Target.Platform == UnrealTargetPlatform.Android)
 		{
